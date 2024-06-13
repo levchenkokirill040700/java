@@ -1,0 +1,11 @@
+dist/
+node_modules/
+
+# dont want to save images
+static/rb_imgs/*
+config.yaml
+error
+info
+fatal
+coverage
+logs
