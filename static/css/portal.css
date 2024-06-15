@@ -1,0 +1,225 @@
+/*
+colors - #a1f113, #1c6404, #2cb404, #facc04, #fb147b, #d44c04, #238204, #cb7519, #c49c3c, #ac6404
+*/
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.pageBody {
+  min-height:100%;
+  min-width:100%;
+  position:relative;
+  font-family: 'Varela';
+  background-image: linear-gradient(#ef2556, #facc04);
+}
+
+.portalBottom {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 100px;
+}
+
+.portalContent {
+  position: absolute;
+  width: 30%;
+  height: 30%;
+  margin-top: 15%;
+  margin-left: 50%;
+}
+
+.portalContent p {
+    font-size: 1.7em;
+    color: white;
+}
+
+.portalLogo {
+  height: 100%;
+  width: 175px;
+  float: left;
+  shape-outside: circle(50%);
+}
+
+.portalLogo img{
+    margin-top: 15px;
+    width: 90%;
+    border-radius: 50%;
+    border: 2px solid #1c6404;
+}
+
+.portalLogo img:hover {
+  opacity: 0.5;
+}
+
+.portalLinks ul{
+  padding: 0.1em 0;
+  list-style: none;
+  line-height: 2.0em;
+}
+
+.portalLinks a{
+  color: white;
+  text-decoration: none;
+  font-family: 'Varela';
+  text-shadow: 2px 2px #ef2556;
+  font-size: 1.4em;
+}
+
+.portalLinks a:hover{
+  color: #facc04;
+}
+
+
+.short img {
+  height: 100px;
+  width: 100%;
+}
+
+.long img {
+  height: 100px;
+  width: 100%;
+}
+
+.loginForm {
+  font-family: 'Varela';
+  font-size:1.3em;
+  color: #dd2c00;
+  width: 100%;
+  height: 40%;
+  float: left;
+  padding: 3%;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.loginButton:hover {
+  background-color: #facc04;
+  color: #d44c04
+}
+
+.loginButton {
+  width: 50%;
+  font-size: 1.1em;
+  color: #facc04;
+  border-radius: 5px;
+  background-color: #d44c04;
+  margin-top: 5%;
+  margin-bottom: 20px;
+}
+
+.loginUsername {
+  margin-bottom: 6%;
+}
+
+.loginPassword {
+  margin-bottom: 6%;
+}
+
+.loginForm a {
+    color: #d44c04;
+    text-decoration: none;
+    font-size: 1em;
+    line-height: 2em;
+  }
+  
+  .loginForm a:hover{
+    color: #ef2556;
+  }
+  
+input[type=text] {
+  border-style:none;
+  border: 2px solid #cb7519;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  width: 80%;
+  height: 2.4em;
+  font-size: 0.8em;
+  color: #d44c04; 
+}
+
+input[type=password] {
+  border-style:none;
+  border: 2px solid #cb7519;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  width: 80%;
+  height: 2.4em;
+  font-size: 0.8em;
+  color: #d44c04; 
+}
+
+.sideBar {
+  height: 40%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #facc04;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  border: 2px solid #ef2556;
+}
+
+@media screen and (max-width: 800px) {
+    .portalContent {
+        margin-top: 20%;
+        margin-left: 15%;
+        width: 90%;
+    }
+
+    .portalLogo {
+        height: 100%;
+        width: 150px;
+        float: left;
+    }
+
+    .portalLogo img {
+        margin-top: 0px;
+    }
+
+    .portalLinks a {
+        margin-right: 1vh;
+        color: white;
+        font-size: 1em;
+    }
+
+    .portalLinks ul{
+        float: left;
+        list-style: none;
+        line-height: 1.5em;
+    }
+
+    .sideBar {
+        padding-top: 15px;
+        height: 50%;
+    }
+
+    .sideBar a {font-size: 18px;}
+}
+
+
+@media screen and (max-height: 700px) {
+  .sideBar {
+    padding-top: 5px;
+    height: 100vh;
+  }
+
+  .portalContent {
+    margin-top: 5%;
+    margin-left: 15%;
+    width: 80%;
+    height: 80%;
+  }
+
+  .portalLinks a {
+      color: white;
+      font-size: 1em;
+  }
+
+}

@@ -1,0 +1,257 @@
+.coin_data {
+    margin: auto;
+    margin-top: 5px;
+    width: 80%;
+    height: 100%;
+    background-color: white;
+}
+
+.coin_header {
+    margin: auto;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.coin_header a {
+    text-decoration: none;
+    font-size: 3.0em;
+    color: #26389ca4;
+}
+
+.coin_header a:hover {
+    font-weight: 600;
+}
+
+.main {
+    display:grid;
+    margin: auto;
+    grid-template-columns: 40% 80%;
+    grid-auto-rows: 1fr;
+    grid-column-gap: 10px;
+    width:25%;
+}
+
+
+.coin_img, .coin_name {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.coin_img {
+    text-align: right;
+}
+
+.coin_img img {
+    height: 60px; 
+    margin-top: 15px;
+}
+
+.coin_name {
+    text-align: left;
+}
+
+.meta_data {
+    height: 150px;
+}
+
+.meta_data table {
+    height: 150px;
+    width: 65%;
+    margin: auto;
+    text-align: center;
+    border-collapse: collapse;
+    font-size: 1.3em;
+    color: #5081ca;
+}
+
+.meta_data table td {
+    border: 2px solid #26389ca4; 
+}
+
+#title, #cprice_title {
+    background-color: #26389ca4;
+    color: white;
+}
+
+#cprice {
+    font-size: 2.5em;
+}
+
+.chart {
+    display: none;
+    width: 100%;
+    height: 500px;
+    margin: auto;
+    background-color: white;
+}
+
+.coin_details {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    color: #13206ea4;
+    background-color: white;
+}
+
+.toggle {
+    width: 20%;
+    height: 2em;
+    margin: auto;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.toggle a {
+    border: 2px solid #5081ca;
+    background-color: #26389ca4;
+    vertical-align: middle;
+    color: white;
+    text-decoration: none;
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 1.1em;
+}
+
+.toggle a:hover {
+    font-weight: bolder;
+    background-color: white;
+    color: #26389ca4
+}
+
+#coin_deets_header {
+    font-size: 1.0em;
+    font-weight: bolder;
+}
+
+.summary {
+    margin-left: 3%;
+    margin-left: 2%;
+}
+
+.categories {
+    margin-left: 3%;
+}
+
+.categories a {
+    text-decoration: none;
+    color: #26389ca4;
+}
+
+.categories a:hover {
+    font-weight: bold;
+    color: #26389ca4;
+}
+
+.exchanges {
+    margin: auto;
+    background-color: #5081ca;
+}
+
+.exchanges table{
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.exchanges table th {
+    color: white;
+    background-color: #26389ca4;
+    border: 2px solid #26389ca4;
+}
+
+.exchanges table td {
+    border: 2px solid #26389ca4; 
+}
+
+.exchanges a {
+    text-decoration: none;
+    color: #26389ca4;   
+}
+
+.exchanges a:hover {
+    color: #5081ca;
+    font-weight: 600;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+  }
+  
+.closeInfo {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+  
+.closeInfo:hover,
+.closeInfo:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.portalBottom {
+    clear: both;
+    width: 100%;
+    position: relative;
+}
+
+.short img {
+    height: 100px;
+    width: 20%;
+    float: right;
+}
+
+.long img {
+    height: 100px;
+    width: 80%;
+    float: left;
+}
+
+@media screen and (max-width: 1200px) {
+    .coin_data {
+        width: 90%;
+    }
+
+    .coin_img img {
+        height: 30px; 
+        margin-top: 5px;
+    }
+
+    .coin_header {
+        margin-bottom: 20px;
+    }
+
+    .toggle {
+        width: 50%;
+        height: 2em;
+        margin-top: 50px;
+    }
+
+    .portalBottom {
+        display: none;
+    }
+    
+}

@@ -1,0 +1,177 @@
+.userLogo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.userLogo img{
+    margin-top: 25px;
+    margin-right: 25px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #1c6404;
+}
+
+.userLogo img:hover {
+    opacity: 0.5;
+}
+
+.navLinks label, #hamburger { display: none; }
+
+.navLinks {
+    overflow: hidden;
+    background-color: #ffc800;
+    margin: auto;
+    border: 2px solid #cb7519;
+}
+
+.navLinks ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navLinks li {
+    float: left;
+}
+  
+.navLinks li a {
+    display: block;
+    color: #d54a00;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+.navLinks li a:hover {
+    background-color: #fc1378;
+    color: #ffc800;
+}
+
+.add_user {
+    padding-top: 3%;
+    margin: auto;
+    width: 60%;
+    font-family: 'Varela';
+    font-size:1.2em;
+    text-align: center;
+    color: white;
+    line-height: 2.5em;
+}
+
+.reg_input {
+    width: 70%;
+    text-align: left;
+}
+
+.reg_label {
+    width: 30%;
+}
+
+.add_user table {
+    width: 80%;
+    margin: auto;
+}
+
+.add_user input[type=text] {
+    width: 95%;
+    height: 2em;
+    font-size: 0.8em;
+    color: #d44c04; 
+}
+
+.add_user input[type=password] {
+    width: 95%;
+    height: 2em;
+    font-size: 0.8em;
+    color: #d44c04; 
+}
+
+.add_user select {
+    width: 30%;
+    height: 2em;
+    font-size: 0.8em;
+    color: #d44c04; 
+    text-align: center;
+}
+
+.addUser_button {
+    width: 40%;
+    font-size: 1.1em;
+    color: #facc04;
+    border-radius: 5px;
+    background-color: #d44c04;
+    margin-top: 5%;
+}
+
+.addUser_button:hover {
+    background-color: #facc04;
+    color: #d44c04
+}
+
+@media (max-width: 900px) {
+    .userLogo {
+       margin-top: 25%;
+    }
+
+    /* Show Hamburger Icon */
+    .navLinks label { 
+        display: inline-block; 
+        color: white;
+        background: #a02620;
+        font-style: normal;
+        font-size: 1.4em;
+        padding: 10px;
+    }
+
+    label {
+        float: left;
+    }
+
+    .navLinks li {
+        float: none;
+    }
+
+    #hiddenLinks li a {
+        display: block;
+        width: 100%;
+    }
+
+    /* Toggle Show/Hide Menu */
+    #hiddenLinks { display: none; }
+    .navLinks input:checked ~ #hiddenLinks { display: block; }
+}
+
+@media (max-height: 500px) {
+    /* .userLogo {
+       display: none;
+    } */
+
+    /* Show Hamburger Icon */
+    .navLinks label { 
+        display: inline-block; 
+        color: white;
+        background: #a02620;
+        font-style: normal;
+        font-size: 1.4em;
+        padding: 10px;
+    }
+
+    label {
+        float: left;
+    }
+
+    .navLinks li {
+        float: left;
+    }
+
+    #hiddenLinks li a {
+        display: block;
+        width: 100%;
+    }
+
+    /* Toggle Show/Hide Menu */
+    #hiddenLinks { display: none; }
+    .navLinks input:checked ~ #hiddenLinks { display: block; }
+}

@@ -1,0 +1,152 @@
+.pageBody {
+    overflow-y:auto;
+}
+
+.stats_form {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 75px;
+}
+
+.stats_form label {
+    color: white;
+    font-size: 1.4em;
+}
+
+.stats_form input[type=text] {
+    width: 40px;
+    height: 1.8em;
+    font-size: 1em;
+    color: #d44c04;
+}
+
+.stats_form button {
+    width: 15%;
+    font-size: 1.1em;
+    color: #facc04;
+    border-radius: 5px;
+    background-color: #d44c04;
+    margin-top: 15px;
+}
+
+.stats_form button:hover {
+    background-color: #facc04;
+    color: #d44c04
+}
+
+.stats_chart_title {
+    width: 100%;
+    text-align: center;
+    font-size: 1.3em;
+    color: white;
+}
+
+.visits_count {
+    margin: auto;
+    text-align: center;
+    width: 90%;
+}
+
+.visits_count table {
+    margin: auto;
+    text-align: center;
+    border-collapse: collapse;
+    background-color: white;
+    width: 50%;
+}
+
+.visits_count th {
+    background-color: #d44c04;
+    color: white;
+}
+
+.stats_chart {
+    width: 100%;
+    height: 400px;
+}
+
+#chart {
+    max-width: 90%;
+    height: 400px;
+    background-color: white;
+    margin: 35px auto;
+}
+
+.stats_tables {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    padding-bottom: 350px;
+}
+
+.stats_tables p {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: white;
+}
+
+.stats_tables table {
+    background-color: white;
+}
+
+.stats_tables table, tr, th, td {
+    border: 2px solid black;
+    text-align: center;
+}
+
+.top_tables {
+    width: 100%;
+    clear: both;
+}
+
+.mid_tables {
+    width: 100%;
+    clear: both;
+}
+
+.bottom_tables {
+    width: 100%;
+    clear: both;
+}
+
+.left_table {
+    width: 50%;
+    float: left;
+}
+
+.left_table table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.left_table th {
+    background-color: #d44c04;
+    color: white;
+}
+
+.left_table th:hover {
+    background-color: #ef2556;
+}
+
+.right_table {
+    width: 50%;
+    float: right;
+}
+
+.right_table table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.right_table th {
+    background-color: #d44c04;
+    color: white;
+}
+
+.right_table th:hover {
+    background-color: #ef2556;
+}

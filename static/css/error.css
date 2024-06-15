@@ -1,0 +1,30 @@
+.error {
+    width: 60%;
+    height: 150px;
+    margin: auto;
+    background-color: white;
+    border-radius: 25px;
+    text-align: center;
+    margin-top: 100px;
+    border: 2px solid #cb7519;
+}
+
+.error p {
+    padding-top: 10px;
+    font-size: 1.4em;
+}
+
+.error_img {
+    margin: auto;
+    text-align: center;
+}
+
+.error_img img {
+    margin-top: 40px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.error_img img:hover {
+    opacity: 75%;
+}

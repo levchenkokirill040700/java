@@ -1,0 +1,393 @@
+.pageBody {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    font-family: 'Varela';
+    background-image: linear-gradient(#ef2556, #facc04);
+    position: fixed;
+}
+
+.portalBottom {
+    clear: both;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+  
+.short img {
+    height: 100px;
+    width: 20%;
+    float: right;
+}
+
+.long img {
+    height: 100px;
+    width: 80%;
+    float: left;
+}
+
+.view_notes {
+    width: 40%;
+    height: 80%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.view_notes table {
+    color: #8d3606;
+    width: 100%;
+    margin-top: 10px;
+    background-color:  white;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#lean_left {
+    text-align: left;
+}
+
+.view_notes table, th, tr, td {
+    border: 2px solid #d44c04;
+    border-collapse: collapse;
+}
+
+.view_notes th {
+    background-color: #d44c04;
+    color: white;
+}
+
+.view_notes th:hover {
+    background-color: #ef2556;
+}
+
+.view_notes a {
+    text-decoration: none;
+    color: #26389ca4;
+}
+
+.view_notes a:hover {
+    color: #afb7e2a4;
+}
+
+#add_note_link {
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 8px;
+    background-color: #d44c04;
+}
+
+#add_note_link:hover {
+    color: #d44c04;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 8px;
+    background-color: #fff;
+}
+
+.add_note_outer {
+    display: none;
+    width: 60%;
+    margin: auto;
+    margin-top: 20px;
+    background: linear-gradient(to right, white 50% ,  #fcede6 50%);
+}
+
+#show_notes_link {
+    margin: auto;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 8px;
+    background-color: #d44c04;
+    text-decoration: none;
+    margin-top: 30px;
+    width: 20%;
+}
+
+#show_notes_link:hover {
+    color: #d44c04;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 8px;
+    background-color: #fff;
+}
+
+.enter_note {
+    width: 100%;
+    border-radius: 10px;
+    height: 80%;
+    z-index: 3; /* Stay on top */
+    overflow-y: hidden; /* Disable horizontal scroll */
+    font-family: 'Varela';
+    color: #cb7519;
+    position: relative;
+  }
+
+.note_form {
+    width: 50%;
+    font-family: 'Varela';
+    font-size: 1.3em;
+    float: left;
+    text-align: center;
+}
+
+#note_title {
+    width: 60%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+#note_content {
+    width: 95%;
+    height: 90%;
+    margin-bottom: 15px;
+    font-size: 0.75em;
+}
+
+#note_tags {
+    width: 60%;
+    margin-bottom: 15px;
+}
+
+.enter_note input[type=text] {
+    height: 1.2em;
+    font-size: 0.75em;
+    color: #d44c04;
+}
+
+.enter_note textarea {
+    font-size: 0.75em;
+    color: #d44c04;
+    resize: none;
+}
+
+.note_button:hover {
+    color: #d44c04;
+    border: 2px solid #d44c04;
+    border-radius: 10px;
+    padding: 8px;
+    background-color: #fff;
+}
+  
+.note_button {
+    font-size: 0.85em;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 8px;
+    background-color: #d44c04;
+    width: 15%;
+}
+
+.enter_note button {
+    margin-bottom: 10px;
+}
+
+.preview_note {
+    height: 90%;
+    float: right;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+    
+#preview_title {
+    color: #d44c04;
+    margin-bottom: 30px;
+}
+
+.markdown_preview {
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: white;
+    height: 90%;
+    color: #d44c04;
+    overflow-y: auto;
+}
+
+.view_note {
+    width: 50%;
+    height: 70%;
+    margin: auto;
+    background-color: white;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+#view_title {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    font-size: 2em;
+    font-weight: bolder;
+    color: #d44c04;
+}
+
+.content_wrapper {
+    width: 100%;
+    height: 80%;
+}
+
+.view_content {
+    height: 90%;
+    margin: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: white;
+    border-top: 2px solid  #d44c04;
+    border-bottom: 2px solid  #d44c04;
+}
+
+.view_tags {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.view_tags p {
+    font-size: 1.3em;
+    color: #d44c04;
+}
+
+.view_tags a {
+    text-decoration: none;
+    font-size: 1.3em;
+    font-weight: bolder;
+    color: #d44c04;
+}
+
+.view_tags a:hover {
+    font-weight: normal;
+    color: #facc04;
+}
+
+.edit_note_button_class {
+    position: relative;
+    text-align: center;
+    margin: auto;
+    width: 100%;
+    height: 50px;
+    border-radius: 0px 0px 10px 10px;
+}
+
+#edit_note_button {
+    color: white;
+    font-size: 1.5em;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #d44c04;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 50%;
+}
+
+#edit_note_button:hover {
+    color: #d44c04;
+    border: 2px solid #d44c04;
+    background-color: #fff;
+}
+
+.edit_note {
+    width: 50%;
+    margin: auto;
+    background-color: white;
+    margin-top: 20px;
+    border-radius: 10px;
+    display: none;
+    text-align: center;
+}
+
+.edit_note form {
+    margin: auto;
+    width: 100%;
+}
+
+.edit_note label {
+    margin-left: 10px;
+    font-size: 1.5em;
+}
+
+#update_note_title {
+    font-size: 2em;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+}
+
+#update_note_title:focus, #update_note_content:focus, #update_note_tags:focus {
+    background-color: whitesmoke;
+    border: 1.5px solid lightblue;
+}
+
+#update_note_content {
+    font-family: 'Varela';
+    font-size: 1.2em;
+    width: 100%;
+    border: none;
+    resize: none;
+}
+
+
+#update_note_tags {
+    font-size: 1.5em;
+    border: none;
+    background-color: white;
+}
+
+.edit_note button {
+    color: white;
+    font-size: 1.5em;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #d44c04;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 20%;
+}
+
+.edit_note button:hover {
+    color: #d44c04;
+    border: 2px solid #d44c04;
+    background-color: #fff;
+}
+
+#return_to_note {
+    text-decoration: none;
+    color:  #d44c04;
+}
+
+#return_to_note:hover {
+    text-decoration: none;
+    color:  #d44c04;
+    font-weight: bolder;
+}
+
+@media screen and (max-width: 600px) {
+    .view_notes {
+        width: 90%;
+    }
+
+    .short img {
+        height: 40px;
+    }
+    
+    .long img {
+        height: 40px;
+    }
+    
+}
+

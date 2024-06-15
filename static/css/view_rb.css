@@ -1,0 +1,372 @@
+.rb_view {
+    width: 85%;
+    height: 85%;
+    margin: auto;
+    margin-top: 1%;
+    overflow: auto;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.rb_view_name {
+    background-color: #184709;
+    border-radius: 20px 20px 0px 0px;
+    width: 100%;
+    height: 70px;
+}
+
+.rb_title {
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+#title {
+    color: white;
+    font-size: 2.5em;
+    margin-top: 10px;
+}
+
+.update_rb_links {
+    position: absolute;
+    margin-right: 10px;
+    height: 100%;
+    top: 25%;
+    right: 1%;
+}
+
+.update_rb_links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
+}
+
+.update_rb_links a:hover {
+    color: #facc04;
+}
+
+.rb_ratings {
+    float: right;
+    width: 100%;
+    color: #1c6404;
+}
+
+.rb_avg_ratings {
+    border: 2px solid #1c6404;
+}
+
+.rb_avg_ratings #category {
+    color: #1c6404;
+    border: 2px solid #1c6404;
+    border-collapse: collapse;
+}
+
+.rb_avg_ratings table {
+    font-size: 1.2em;
+    text-align: center;
+    font-weight: 400;
+    width: 100%;
+    height: 148px;
+    border-collapse: collapse;
+}
+
+.rb_avg_ratings td {
+    border-collapse: collapse;
+    border: 2px solid #1c6404
+}
+
+.rb_avg_ratings th {
+    border-collapse: collapse;
+    border: 2px solid #1c6404
+}
+
+#total {
+    font-size: 2.5em;
+    background-color: #1c6404;
+    color: white;
+}
+
+.rb_image {
+    clear: both;
+    float: left;
+    background-color: white;
+    width: 15%;
+}
+
+.rb_image img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    max-width: 100%;
+    height: 150px;
+    justify-content: center;
+}
+
+.rb_write_up {
+    width: 80%;
+    float: right;
+    height: 150px;
+    border-radius: 20px 20px 20px 20px;
+    border: 5px solid #1c6404;
+}
+
+.rb_write_up p {
+    margin-left: 10px;
+    white-space: pre-line
+}
+
+.rb_all_ratings {
+    clear: both;
+    border: 2px solid #1c6404;
+    padding-top: 0px;
+}
+
+.rb_all_ratings p {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #2cb404;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.rb_all_ratings table {
+    font-size: 1.1em;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.rb_all_ratings th {
+    background-color: #2cb404;
+    color: white;
+    border: 2px solid #2cb404;
+    border-collapse: collapse;
+}
+
+.rb_all_ratings td {
+    border: 2px solid #2cb404;
+    border-collapse: collapse;
+}
+
+.update_section {
+    width: 80%;
+    margin: auto;
+}
+
+.edit_rb {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    z-index: 1; /* Stay on top */
+    height: 0; /* 100% Full-height */
+    width: 90%; /* 0 width - change this with JavaScript */
+    background-color: #2cb404;
+    overflow-y: hidden; /* Disable horizontal scroll */
+    border-radius: 15px;
+}
+
+.edit_rb form {
+    color: white;
+    text-align: center;
+    line-height: 1.3em;
+    font-size: 1.2em;
+}
+
+.edit_rb input {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.edit_rb input[type=text] {
+    border-style:none;
+    width: 30%;
+    height: 1.8em;
+    font-size: 1em;
+    color: #1c6404;
+    margin-right: 10px;
+  }
+
+.edit_rb button {
+    width: 30%;
+    font-size: 1.1em;
+    color: white;
+    border-radius: 5px;
+    background-color: #1c6404;
+    margin-left: 10px;
+}
+
+.edit_rb button:hover {
+    background-color: #2cb404;
+    color: white;
+}
+
+.add_rating {
+    height: 0;
+    width: 90%;
+    z-index: 1; /* Stay on top */
+    overflow-y: hidden; /* Disable horizontal scroll */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    text-align: center;
+    background-color: #2cb404;
+    border-radius: 15px;
+    color: white;
+    font-size: 1.3em;
+}
+
+.add_rating table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    width: 100%;
+}
+
+.add_rating tr td {
+    border: 2px solid #2cb404;
+    border-collapse: collapse;
+}
+
+.add_rating button {
+    width: 30%;
+    font-size: 1.1em;
+    color: white;
+    border-radius: 5px;
+    background-color: #1c6404;
+    margin-top: 1%;
+}
+
+.add_rating button:hover {
+    background-color: #2cb404;
+}
+
+.add_write_up {
+    height: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    z-index: 1; /* Stay on top */
+    overflow-y: hidden; /* Disable horizontal scroll */
+}
+
+.add_write_up button {
+    width: 30%;
+    font-size: 1.1em;
+    color: white;
+    border-radius: 5px;
+    background-color: #1c6404;
+    margin-top: 1%;
+}
+
+.add_write_up button:hover {
+    background-color: #2cb404;
+}
+
+@media (max-width: 600px) {
+    .rb_view {
+        width: 100%;
+        margin-top: 0%;
+        border-radius: 0px 0px 0px 0px;
+    }
+    
+    .rb_view_name {
+        width: 100%;
+        height: 90px;
+        border-radius: 0px 0px 0px 0px;
+    }
+
+    #title {
+        color: white;
+        font-size: 1.5em;
+    }
+
+    .update_rb_links {
+        position: relative;
+    }
+
+    .update_rb_links a {
+        font-size: 1em;
+    }
+
+    .rb_image {
+        display: none
+    }
+
+    .rb_write_up {
+        width: 100%;
+        position: relative;
+        height: 150px;
+        border-radius: 0px 0px 0px 0px;
+        border: 3px solid #1c6404;
+    }
+
+    .rb_ratings {
+        width: 100%;
+        color: #1c6404;
+    }
+    
+    .rb_avg_ratings {
+        border: 2px solid #1c6404;
+    }
+    
+    .rb_avg_ratings #category {
+        color: #1c6404;
+        border: 1px solid #1c6404;
+        border-collapse: collapse;
+    }
+    
+    .rb_avg_ratings table {
+        font-size: 1em;
+        text-align: center;
+        font-weight: normal;
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .rb_avg_ratings td {
+        border-collapse: collapse;
+        border: 1px solid #1c6404
+    }
+    
+    .rb_avg_ratings th {
+        border-collapse: collapse;
+        border: 1px solid #1c6404
+    }
+
+    #total {
+        font-size: 1.5em;
+    }
+
+    .rb_all_ratings {
+        display: none
+    }
+
+    .add_rating {
+        width: 100%;
+    }
+    
+    .add_rating table {
+        width: 100%;
+    }
+    
+    .add_rating button {
+        width: 50%;
+    }
+
+    .edit_rb {
+        width: 100%;
+    }
+    
+    .edit_rb form {
+        line-height: 1.1em;
+        font-size: 1em;
+    }
+    
+    
+    .edit_rb input[type=text] {
+        width: 50%;
+        height: 1.4em;
+      }
+}

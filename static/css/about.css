@@ -1,0 +1,21 @@
+.rb_about {
+    width: 80%;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    border-radius: 15px;
+}
+
+.rb_about p {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    padding-bottom: 10px;
+}
+
+.rb_about table {
+    width: 60%;
+    margin: auto;
+}
