@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../../partials/head'); -%>
+    <%- include('../../partials/table'); -%>
+    <link rel="stylesheet" type="text/css" href="css/rb.css">
+    <link rel="stylesheet" type="text/css" href="css/ratings.css">
+</head>
+<body>
+    <div class="display_page_body">
+        <%- include('../../partials/nav_bar'); %>
+        <div class="view_ratings">
+            <table class="display" id="rating_table">
+                <thead>
+                    <tr>
+                        <th>Root Beer</th>
+                        <th>Date</th>
+                        <th>Branding</th>
+                        <th>After Taste</th>
+                        <th>Aroma</th>
+                        <th>Bite</th>
+                        <th>Fizz</th>
+                        <th>Flavor</th>
+                        <th>Smooth</th>
+                        <th>Sweet</th>
+                        <th>Comment</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (const rating of ratings) { %>
+                    <tr>
+                        <td><a href="/rb/<%-rating.rb_id %>"><%- rating.rb_name %></a></td>
+                        <td><%- rating.created %></td>
+                        <form action="/ratings/<%= rating._id %>/update" method="post" id="ratings">
+                            <td> 
+                                <input type="number" name="branding" min="0" max="10" size=5 value="<%- rating.branding %>"/>
+                            </td>
+                            <td class="rb_input"> 
+                                <input type="number" name="at" min="0" max="10" size=5 value="<%- rating.after_taste %>"/>
+                            </td>
+                            <td class="rb_input"> 
+                                <input type="number" name="aroma" min="0" max="10" size=5 value="<%- rating.aroma %>"/>
+                            </td>
+                            <td class="rb_input"> 
+                                <input type="number" name="bite" min="0" max="10" size=5 value="<%- rating.bite %>"/>
+                            </td>
+                            <td class="rb_input"> 
+                                <input type="number" name="carb" min="0" max="10" size=5 value="<%- rating.carbonation %>"/>
+                            </td>
+                            <td class="rb_input"> 
+                                <input type="number" name="flavor" min="0" max="10" size=5 value="<%- rating.flavor %>"/>
+                            </td>
+                            <td class="rb_input"> 
+                                <input type="number" name="smooth" min="0" max="10" size=5 value="<%- rating.smoothness %>"/>
+                            </td>
+                            <td class="rb_input"> 
+                                <input type="number" name="sweet" min="0" max="10" size=5 value="<%- rating.sweetness %>"/>
+                            </td>
+                            <td class="rb_input"> 
+                                <input type="text" name="comment" size=10 value="<%- rating.comment %>"/>
+                            </td>
+                            <td>
+                                <button type="submit" value="rating" class="rate_button" required >Update</button>
+                            </td>
+                        </form>
+                        <td><a href="/ratings/<%- rating._id %>/delete">Delete</a></td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+        <div class="userLogo">
+            <img src="imgs/cc_logo.png"/>
+        </div>
+    </div>
+    <script src="javascript/ratings_table_settings.js"></script>
+</body>

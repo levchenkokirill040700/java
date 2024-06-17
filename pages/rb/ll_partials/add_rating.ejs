@@ -1,0 +1,70 @@
+<div class="add_rating" id="add_rating">
+    <form action="/rate/<%= rb._id %>" method="post" id="rbrating">
+        <table>
+            <tr>
+                <td>
+                    <label>Branding</label>
+                </td>
+                <td class="rb_input"> 
+                    <input type="number" name="branding" min="0" max="10" size=2 placeholder="5"/>
+                </td>
+                <td>
+                    <label>After Taste</label>
+                </td>
+                <td class="rb_input"> 
+                    <input type="number" name="at" min="0" max="10" size=2 placeholder="5"/>
+                </td>
+                <td>
+                    <label>Aroma</label>
+                </td>
+                <td class="rb_input"> 
+                    <input type="number" name="aroma" min="0" max="10" size=2 placeholder="5"/>
+                </td>
+                <td>
+                    <label>Bite</label>
+                </td>
+                <td class="rb_input"> 
+                    <input type="number" name="bite" min="0" max="10" size=2 placeholder="5"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Carbonation</label>
+                </td>
+                <td class="rb_input"> 
+                    <input type="number" name="carb" min="0" max="10" size=2 placeholder="5"/>
+                </td>
+                <td>
+                    <label>Flavor</label>
+                </td>
+                <td class="rb_input"> 
+                    <input type="number" name="flavor" min="0" max="10" size=2 placeholder="5"/>
+                </td>
+                <td>
+                    <label>Smoothness</label>
+                </td>
+                <td class="rb_input"> 
+                    <input type="number" name="smooth" min="0" max="10" size=2 placeholder="5"/>
+                </td>
+                <td>
+                    <label>Sweetness</label>
+                </td>
+                <td class="rb_input"> 
+                    <input type="number" name="sweet" min="0" max="10" size=2 placeholder="5"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Comment</label>
+                </td>
+                <td class="rb_input" colspan="7">
+                    <input type="text" name="comment" size="10"/>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <button type="submit" value="rating" class="rate_button" >
+            Submit Rating
+        </button>
+    </form>
+</div>

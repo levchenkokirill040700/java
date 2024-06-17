@@ -1,0 +1,37 @@
+<div class="navLinks" >
+    <ul id="navLinks">
+        <li>
+            <a href="/home"> Welcome <%- user.username %></a>
+        </li>
+        <li>
+            <a href="#notes">Notes</a>
+        </li>
+        <li>
+            <a href="#todo">To Do</a>
+        </li>
+        <li>
+            <a href="#projects">Projects</a>
+        </li>
+        <% if (user.role === 'rr' || user.role === 'king') { %>
+            <li>
+                <a href="/rootbeer">Root Beers</a>
+            </li>
+        <% } %>
+        <% if (user.role === 'king') { %>
+            <li>
+                <a href="/register">Add User</a>
+            </li>
+        <% } %>
+        <li>
+            <a href="#user info">User Info</a>
+        </li>
+        <li>
+            <a href="/logout">Log Out</a>
+        </li>
+    </ul>
+    <div class="userLogo">
+        <a href='/'>
+            <img src="../imgs/cc_logo.png"/>
+        </a>
+    </div>
+</div>

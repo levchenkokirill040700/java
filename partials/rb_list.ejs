@@ -1,0 +1,25 @@
+
+<table class="display" id="sorted_table">
+    <thead>
+        <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Added</th>
+            <th>Added By</th>
+            <th>Rating</th>
+            <th># Ratings</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% for (const result of results) { %>
+        <tr>
+            <td><%- result.rank %></td>
+            <td><a href="/rb/<%-result._id %>"><%- result.title %></a></td>
+            <td><%- result.created %></td>
+            <td><%- result.user %></td>
+            <td><%- result.rating %></td>
+            <td><%- result.popular %></td>
+        </tr>
+        <% } %>
+    </tbody>
+</table>

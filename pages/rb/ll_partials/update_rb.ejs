@@ -1,0 +1,13 @@
+<div class="edit_rb" id="edit_rb" >
+    <form action="/rb_update/<%=rb._id%>" method="post" enctype="multipart/form-data" id="update_rb">
+        <label >Change Name</label> 
+        <input type="text" name="rb_brand_name" value="<%- rb.name %>" required />
+        <label>Update Image</label>
+        <input type="file" name="rb_image" id="rb_image" accept=".png, .jpg, .jpeg" />
+    
+        <textarea rows="4" cols="100" name="write_up", form="update_rb"><%- rb.write_up %></textarea>
+        <button type="submit" value="rootbeer" class="add_rb_button" >
+            Update
+        </button>
+    </form>
+</div>

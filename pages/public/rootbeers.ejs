@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../../partials/head'); -%>
+    <%- include('../../partials/table'); -%>
+    <link rel="stylesheet" type="text/css" href="/css/rb.css">
+    <link rel="stylesheet" type="text/css" href="/css/pure.css">
+    <link rel="stylesheet" type="text/css" href="/css/pure_response.css">
+</head>
+<body>
+    <div class="display_page_body">
+        <div class="userLogo">
+            <a href='/'>
+                <img src="imgs/cc_logo.png"/>
+            </a>
+        </div>
+        <div class="rb_home">
+            <div class="rb_home_links" >
+                <% if (user && user.active) { %>
+                    <a href="/home">User Page</a>
+                <% } %> 
+                <a href="/">Home</a>
+                <a href="/public_rbs">Reset Search</a>
+                <a href="/rb_about">About</a>
+                <a href="/crypto/markets">Crypto</a>
+            </div>
+            <div class="rb_home_search">
+                <form action="/pub_search" method="post">
+                    <label>Search:</label>
+                    <input type="search" name="rb_search" required />
+                </form>
+            </div>
+        </div>
+        <br>
+        <div class="search_results">
+            <table class="display" id="sorted_table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Added</th>
+                        <th>Added By</th>
+                        <th>Rating</th>
+                        <th># Ratings</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <% for (const result of results) { %>
+                    <tr>
+                        <td><%- result.rank %></td>
+                        <td><a href="/public_rb/<%-result._id %>"><%- result.title %></a></td>
+                        <td><%- result.created %></td>
+                        <td><%- result.user %></td>
+                        <td><%- result.rating %></td>
+                        <td><%- result.popular %></td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="javascript/table_settings.js"></script>
+</body>
+</html>

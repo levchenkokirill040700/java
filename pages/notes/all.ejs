@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Varela" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/css/data_table.css">
+        <script type="text/javascript" charset="utf8" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/home.css">
+        <link rel="stylesheet" type="text/css" href="/css/notes.css">
+        <title>Cactus Coin</title>
+    </head>
+
+    <body>
+        <div class="pageBody">
+            <%- include('../../partials/nav_bar'); %>
+            <div class="view_notes" id="view_notes">
+                <table id="notes_table">
+                    <thead>
+                        <tr>
+                            <th>Created</th>
+                            <th>Title</th>
+                            <th>Tags</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (const note of notes) {%>
+                            <tr>
+                                <td><%- note.created %></td>
+                                <td id="lean_left">
+                                    <a href="/note/<%-note._id%>/view"><%- `${note.title.trim().slice(0, 20)}`%></a>
+                                </td>
+                                <td>
+                                    <% for (const tag of note.tags) {%>
+                                        <a href="/notes/search/<%- tag %>"><%- tag %></a>
+                                    <% } %>
+                                </td>
+                                <td><a href="/note/<%-note._id%>/delete">Delete</a></td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+                </br>
+                <a href="#" onclick="showHide('enter_note', 'view_notes')" id="add_note_link">Add New Note</a>
+            </div>
+            <div class="add_note_outer" id="enter_note">
+                <div class="enter_note">
+                    <div class="note_form">
+                        <form action="/note/<%= user._id %>" method="post" id="add_note">
+                            <input type="text" name="title" placeholder="Title" id="note_title" required="true"/>
+                            <br/>      
+                            <textarea name="content" form="add_note" id="note_content" rows="40" cols="64" placeholder="Enter Content - use markdown to format" required="true" onkeyup='preview();'></textarea>
+                            <br/>
+                            <input type="text" name="tags" placeholder="Tags" id="note_tags"/>
+                            <br/>
+                            <button type="submit" value="note" class="note_button">
+                                Save
+                            </button>
+                        </form>
+                    </div>
+                    <div class="preview_note">
+                        <p id="preview_title">Markdown Preview</p>
+                        <div class="markdown_preview" id="preview_content">
+                        </div>
+                        <a href="#" onclick="showHide('view_notes', 'enter_note')" id="show_notes_link">Back to Notes</a>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <%- include('../../partials/footer'); %>
+            </footer>
+        </div>
+        <script src="/javascript/notes_table.js"></script>
+        <script src="/javascript/purify.min.js"></script>
+        <script src="/javascript/notes_all.js"></script>
+        <script src="/javascript/notes_one.js"></script>
+    </body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Varela" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/home.css"> 
+    <link rel="stylesheet" type="text/css" href="/css/rb.css">
+    <link rel="stylesheet" type="text/css" href="/css/coin_data.css">
+    <link rel="stylesheet" type="text/css" href="/css/data_table.css">
+    <script type="text/javascript" charset="utf8" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <title>Cactus Coin</title>
+</head>
+<body>
+    <div class="display_page_body">
+        <div class="navLinks" >
+            <ul id="navLinks">
+                <li>
+                    <a href="/">Home </a>
+                </li>
+                <li>
+                    <a href="/public_rbs">Root Beers</a>
+                </li>
+                <li>
+                    <a href="/rb_about">About</a>
+                </li>
+                <li>
+                    <a href="/crypto/markets">Crypto</a>
+                </li>
+                <% if (user && user.active) { %>
+                    <li>
+                        <a href="/home">User Page</a>
+                    </li>
+                    <li>
+                        <a href="/logout">Log Out</a>
+                    </li>
+                <% } %>
+            </ul>
+            <div class="userLogo">
+                <a href='/'>
+                    <img src="/imgs/cc_logo.png"/>
+                </a>
+            </div>
+        </div>
+        <div class="coin_data">
+            <div class="coin_header">
+                <div class="main">
+                    <div class="coin_img">
+                        <a href="<%-market_data.homepage%>">
+                            <img src="<%-market_data.image%>"/>
+                        </a>
+                    </div>
+                    <div class="coin_name">
+                        <a href="<%-market_data.homepage%>"><%-market_data.name %></a>
+                    </div>
+                </div>
+                <div class="meta_data">
+                    <table>
+                        <tr>
+                            <td id="cprice_title"> Current Price</td>
+                            <td id="title">Symbol</td>
+                            <td><%- market_data.symbol %></td>
+                            <td id="title">Genesis</td>
+                            <td><%- market_data.start_date %></td>
+                            <td id="title">Max</td>
+                            <td><%- market_data.max_supply %></td>
+                        </tr>
+                        <tr>
+                            <td rowspan=3 id="cprice">$<%-market_data.current_price%></td>
+                            <td id="title">MCap</td>
+                            <td><%- market_data.market_cap %></td>
+                            <td id="title">Rank</td>
+                            <td><%- market_data.rank %></td>
+                            <td id="title">Circ.</td>
+                            <td><%- market_data.circulating_supply %></td>
+                        </tr>
+                        <tr>
+                            <td id="title">ATH</td>
+                            <td><%- market_data.ath %></td>
+                            <td id="title">Date</td>
+                            <td><%- market_data.ath_date %></td>
+                        </tr>
+                        <tr>
+                            <td id="title">24h H</td>
+                            <td><%- market_data.high_24h %></td>
+                            <td id="title">24h L</td>
+                            <td><%- market_data.low_24h %></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="toggle">
+                <a onclick="toggleClassDisplay(
+                    {
+                        id: 'chart',
+                        display: 'block'
+                    },
+                    {
+                        id: 'coin_details',
+                        display: 'grid'
+                    })" href="#">toggle chart</a>
+            </div>
+            <div class="chart" id="chart">
+                <div id="tradingview"></div>
+            </div>
+            <div class="coin_details" id="coin_details">    
+                <div class="exchanges">
+                    <table id="exchange_table">
+                        <thead>
+                            <tr>
+                                <th>Exchange</th>
+                                <th>Volume</th>
+                                <th>Target</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for (const ex of market_data.exchanges) { %>
+                                <tr id="trust-<%-ex.trust_score%>">
+                                    <td><%- ex.name %></td>
+                                    <td><%- ex.volume %></td>
+                                    <td><a href="<%- ex.trade_url %>"><%- ex.target %></a></td>
+                                </tr>
+                                <% } %>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <div class="summary">
+                        <p id="coin_deets_header">Description:</p>
+                        <p id="summary"><%- market_data.description.slice(0, 500) %></p>
+                        <% if (market_data.description.length > 500 ) { %>
+                            <a id="show_summary" href="#" onClick="showModal('myModal', 'closeInfo')">...more</a>
+                        <% } %>
+                    </div>
+                    <div class="categories">
+                        <p id="coin_deets_header">Categories:</p>
+                        <ul>
+                            <% for (const c of market_data.categories) { %>
+                                <li><a href="/crypto/catfull/<%-encodeURIComponent(c)%>"><%- c %></a></li>
+                                <% } %>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="closeInfo">&times;</span>
+                    <p><%- market_data.description %></p>
+                </div>
+            </div>
+        <footer>
+            <div class="portalBottom">
+                <div class="short">
+                <img src="/imgs/short_landscape.png"/>
+                </div>
+                <div class="long">
+                <img src="/imgs/long_landscape.png"/>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/javascript/exchange_table.js"></script>
+    <script src="/javascript/toggle_class_display.js"></script>
+    <script src="/javascript/pop_out_window.js"></script>
+    <script type="text/javascript">
+        new TradingView.widget(
+        {
+            "height": "650px",
+            "width": "100%",
+            "symbol": "BINANCE:<%-market_data.symbol%>USDT",
+            "interval": "240",
+            "timezone": "Etc/UTC",
+            "theme": "light",
+            "style": "1",
+            "locale": "en",
+            "toolbar_bg": "#f1f3f6",
+            "enable_publishing": false,
+            "withdateranges": true,
+            "allow_symbol_change": true,
+            "save_image": false,
+            "container_id": "tradingview"
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../partials/head'); -%>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="pageBody">
+            <div class="sideBar" id="slidder">
+                <%- include('../partials/portal_login.ejs'); -%>
+            </div>
+            <div class="portalContent">
+                <% if (message) {%>
+                    <p><%- message %></p>
+                <% } %>
+                <div class="portalLogo">
+                    <img onclick="slide('slidder', 'width', 300)"  src="imgs/cc_logo.png"/>
+                </div>
+                <div class="portalLinks">
+                    <ul>
+                        <li>
+                            <a href="/public_rbs">Every Root Beer</a>
+                        </li>
+                        <li>
+                            <a href="/crypto/markets">Crypto</a>
+                        </li>
+                        <li>
+                            <a href="#">Cactus Coin</a>
+                        </li>
+                        <li>
+                            <a href="#">About</a>
+                        </li>
+                        <% if (user && user.active) { %>
+                        <li>
+                            <a href="/home">User Page</a>
+                        </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+            <%- include('../partials/footer'); -%>
+        </div>
+        <script src="javascript/portal.js"></script>  
+    </body>
+</html>

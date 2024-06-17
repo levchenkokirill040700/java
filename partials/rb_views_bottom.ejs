@@ -1,0 +1,37 @@
+<p>Ratings</p>
+<table class="display" id="sorted_table">
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Date</th>
+            <th>Total</th>
+            <th>Brand</th>
+            <th>After Taste</th>
+            <th>Aroma</th>
+            <th>Bite</th>
+            <th>Fizz</th>
+            <th>Flavor</th>
+            <th>Smooth</th>
+            <th>Sweet</th>
+            <th>Comment</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for (const rating of ratings) {%>
+            <tr>
+                <td><%- rating.user %></td>
+                <td><%- rating.created %></td>
+                <td><%- rating.total %></td>
+                <td><%- rating.branding %></td>
+                <td><%- rating.after_taste %></td>
+                <td><%- rating.aroma %></td>
+                <td><%- rating.bite %></td>
+                <td><%- rating.carbonation %></td>
+                <td><%- rating.flavor %></td>
+                <td><%- rating.smoothness %></td>
+                <td><%- rating.sweetness %></td>
+                <td><%- rating.comment %></td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../../partials/head'); -%>
+    <%- include('../../partials/table'); -%>
+    <link rel="stylesheet" type="text/css" href="css/rb.css">
+</head>
+<body>
+    <div class="display_page_body">
+        <%- include('../../partials/nav_bar'); %>
+        <%- include('../../partials/rootbeer_actions'); %>
+        <%- include('../../partials/add_rb'); %>
+        <div class='search_results'>
+            <%- include('../../partials/rb_list') %>
+        </div>
+        <div class="bottom_padding">
+        </div>
+    </div>
+   
+    <script src="../javascript/portal.js"></script>
+    <script src="../javascript/table_settings.js"></script>
+</body>

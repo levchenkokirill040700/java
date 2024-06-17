@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head'); -%>
+    <%- include('../partials/table'); -%>
+    <link rel="stylesheet" type="text/css" href="css/stats.css">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+
+<body>
+    <div class="pageBody">
+        <%- include('../partials/nav_bar'); %>
+        <div class="stats_form">
+            <form action="/web_stats" method="post">
+                <label for="period">Length</label>
+                <input type="text" id="period" name="period" type="number" required>
+                <label for="time_unit">Time Unit:</label>
+                <select id="unit" name="unit">
+                    <option value="day">Day</option>
+                    <option value="month">Month</option>
+                    <option value="hour">Hour</option>
+                </select>
+                <button type="submit" value="web_stats">
+                    Change Time Frame
+                </button>
+            </form>
+        </div>
+        <div class="visits_count">
+            <table>
+                <tr>
+                    <th>Total Visists</th>
+                    <th>Unique Visits</th>
+                </tr>
+                <tr>
+                    <td><%- visitsTotal %></td>
+                    <td><%- visitsUniq %></td>
+                </tr>
+            </table>
+        </div>
+        <div class="stats_chart_title">
+            <p>Total and Unique Visits per Time Period</p>
+        </div>
+        <div id="chart" class="stats_chart"></div>
+        <div class="stats_tables">
+            <div class="top_tables">
+                <div class="left_table">
+                    <p>Page Visits</p>
+                    <table id="page_table">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Page</th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% countByPage.forEach(([page, count], i) => { %>
+                                <tr>
+                                    <td><%- i + 1 %></td>
+                                    <td><%- page %></td>
+                                    <td><%- count %></td>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="right_table">
+                    <p>Count by IP Address</p>
+                    <table id="visit_table">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Ip Address</th>
+                                <th>Country</th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% countByIp.forEach(([ip, [country, count]], i) => { %>
+                                <tr>
+                                    <td><%- i + 1 %></td>
+                                    <td><%- ip %></td>
+                                    <td><%- country %></td>
+                                    <td><%- count %></td>
+                                </tr>
+                            <% }); %> 
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="mid_tables">
+                <div class="left_table">
+                    <p>Count by OS</p>
+                    <table id="os_table">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>OS</th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <% countByOs.forEach(([os, count], i) => { %>
+                            <tr>
+                                <td><%- i + 1 %></td>
+                                <td><%- os %></td>
+                                <td><%- count %></td>
+                            </tr>
+                            <% }); %> 
+                        </tbody>
+                    </table>
+                </div>
+                <div class="right_table">
+                    <p>Count by Browser</p>
+                    <table id="browser_table">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Browser</th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% countByBrowser.forEach(([br, count], i) => { %>
+                                <tr>
+                                    <td><%- i + 1 %></td>
+                                    <td><%- br %></td>
+                                    <td><%- count %></td>
+                                </tr>
+                            <% }); %> 
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="bottom_tables">
+                <div class="left_table">
+                    <p>Count by Country</p>
+                    <table id="country_table">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Country</th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% countyByCountry.forEach(([c, count], i) => { %>
+                                <tr>
+                                    <td><%- i + 1 %></td>
+                                    <td><%- c %></td>
+                                    <td><%- count %></td>
+                                </tr>
+                            <% }); %> 
+                        </tbody>
+                    </table>
+                </div>
+                <div class="right_table">
+                </div>
+            </div>
+        </div>
+        <%- include('../partials/footer'); %>
+    </div>
+<script src="javascript/table_settings.js"></script>
+<script>
+    const chart = new ApexCharts(document.querySelector("#chart"), <%- JSON.stringify(options) %>);
+    chart.render();
+</script>
+</body>
+</html>

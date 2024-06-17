@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); -%>
+</head>
+<body>
+    <div class="pageBody">
+        <%- include('../partials/nav_bar'); %>
+        <div class="add_user">
+            <form action="/register" method="post">
+                <table>
+                    <tr>
+                        <td class="reg_label">
+                            <label>Username:</label>
+                        </td>
+                        <td class="reg_input"> 
+                            <input type="text" name="username" required />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="reg_label">
+                            <label>Password:</label>
+                        </td>
+                        <td class="reg_input">
+                            <input type="password" name="password" id="new_password" required />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="reg_label">
+                            <label>Confirm Password:</label>
+                        </td>
+                        <td class="reg_input">
+                            <input type="password" name="confirm_password" id="confirm_password" onkeyup='passCheck();' required />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="reg_label">
+                            <label>Role:</label>
+                        </td>
+                        <td class="reg_input">
+                            <select name="role" id="role">
+                                <option value="user" >User</option>
+                                <option value="rr">Root Beer Rater</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <span id='message'></span>
+                <button id="submit", type="submit" value="Login" class="addUser_button" >
+                    Add User
+                </button>
+            </form>
+        </div>
+        <div class="userLogo">
+            <img src="imgs/cc_logo.png"/>
+        </div>
+
+        <%- include('../partials/footer'); %>
+    </div>
+
+    <script src="javascript/view.js"></script>
+</body>

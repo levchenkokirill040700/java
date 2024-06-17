@@ -1,0 +1,43 @@
+<div class="navLinks" >
+    <label for="hamburger">&#9776;</label>
+    <input type="checkbox" id="hamburger"/>
+    <ul id="navLinks">
+        <li>
+            <a href="/home"> Welcome <%- user.username %></a>
+        </li>
+    </ul>
+    <ul id="hiddenLinks">
+        <li>
+            <a href="/notes">Notes</a>
+        </li>
+        <li>
+            <a href="/crypto/markets">Crypto</a>
+        </li>
+        <% if (user.role === 'rr' || user.role === 'king') { %>
+            <li>
+                <a href="/rootbeer">Root Beers</a>
+            </li>
+        <% } %>
+        <% if (user.role === 'king') { %>
+            <li>
+                <a href="/register">Add User</a>
+            </li>
+        <% } %>
+        <li>
+            <a href="/user_info">User Info</a>
+        </li>
+        <% if (user.role === 'king') { %>
+        <li>
+            <a href="/web_stats">Web Stats</a>
+        </li>
+        <% } %>
+        <li>
+            <a href="/logout">Log Out</a>
+        </li>
+    </ul>
+    <div class="userLogo">
+        <a href='/'>
+            <img src="/imgs/cc_logo.png"/>
+        </a>
+    </div>
+</div>

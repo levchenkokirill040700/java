@@ -1,0 +1,16 @@
+<div class="add_rb" id="add_rb">
+    <form action="/rb_create" method="post" enctype="multipart/form-data" id="new_rb">
+        <div class="rb_name"> 
+            <input type="text" name="rb_brand_name" placeholder="RB brand name" required />
+        </div>
+        <div class="rb_img">
+            <label>Image (Optional)</label>
+            <input type="file" name="rb_image" id="rb_image" accept=".png, .jpg, .jpeg" />
+        </div>
+        <textarea name="write_up", form="new_rb" placeholder="root beer write up"></textarea>
+        <br />
+        <button type="submit" value="rootbeer" class="add_rb_button" >
+            Save RB
+        </button>
+    </form>
+</div>

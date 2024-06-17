@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../partials/head'); -%>
+    </head>
+
+    <body onload="passResetM()">
+        <div class="pageBody">
+            <%- include('../partials/nav_bar'); %>
+            <div class="user_info" style="margin:auto; width: 80%;">
+                <p>Username: <%- user.username %></p>
+                <p>Role: <%- user.role %></p>
+                <p>Created: <%- user.created %></p>
+                <form action="/set_pass" method="post">
+                    <table>
+                        <tr>
+                            <td>
+                                <label>Current Passord:</label>
+                            </td>
+                            <td>
+                                <input type="password" name="current_password" id="current_password" required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Reset Passord:</label>
+                            </td>
+                            <td>
+                                <input type="password" name="new_password" id="new_password" required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Confirm Password:</label>
+                            </td>
+                            <td>
+                                <input type="password" name="confirm_password" id="confirm_password" onkeyup='passCheck();' required />
+                            </td>
+                        </tr>
+                    </table>
+                    <span id='message'></span>
+                    <button id="submit" type="submit" value="setpass" class="setPass_button" >
+                        Reset Password
+                    </button>
+                </form>
+                <p id="resetM"><%= message %></p>
+            </div>
+            <%- include('../partials/footer'); %>
+        </div>
+        <script src="javascript/view.js"></script>
+    </body>
+</html>

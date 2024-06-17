@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../partials/head'); -%>
+        <script type="text/javascript" charset="utf8" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/data_table.css">
+        <link rel="stylesheet" type="text/css" href="css/portfolio.css">
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    </head>
+    <body>
+        <div class="pageBody">
+            <%- include('../partials/nav_bar'); %>
+            <div class="grand_tally pure-g">
+                <div class="pure-u-1-2" style="float: left">
+                    <div class="grand_tally_data pure-u-1-2">
+                        <div class="grand_tally_header"><p>Total Value</p></div>
+                       <div class="grand_tally_value"><p><%- grand_tally.portfolio_value %></p></div>
+                    </div>
+                    <div class="grand_tally_data pure-u-1-2">
+                        <div class="grand_tally_header"><p>Total Invested</p></div>
+                        <div class="grand_tally_value"><p><%- grand_tally.total_cost %></p></div>
+                    </div>
+                    <div class="grand_tally_data pure-u-1-2">
+                        <div class="grand_tally_header"><p>% &#8710</p></div>
+                        <% if (Number(grand_tally.p_gain.replace(',', '')) > 0) { %>
+                            <div class="grand_tally_value_up">
+                                <p><%- grand_tally.p_gain %> %</p>
+                            </div>
+                            <% } else {%>
+                            <div class="grand_tally_value_down">
+                                <p><%- grand_tally.p_gain %> %</p>
+                            </div>
+                        <% } %>
+                    </div>
+                    <div class="grand_tally_data pure-u-1-2">
+                        <div class="grand_tally_header"><p>$ Gain</p></div>
+                        <% if (grand_tally.value_gain.includes('-')) { %>
+                            <div class="grand_tally_value_down">
+                                <p><%- grand_tally.value_gain %></p>
+                            </div>
+                            <% } else {%>
+                            <div class="grand_tally_value_up">
+                                <p class="up"><%- grand_tally.value_gain %></p>
+                            </div>
+                        <% } %>
+                    </div>
+                    <div class="pool_table pure-u-1-1">
+                        <table class="pure-table">
+                            <tr>
+                                <td id="pool_type_td" >Fiat</td>
+                                <td><%= grand_tally.fiat %></td>
+                            </tr>
+                            <tr>
+                                <td id="pool_type_td" >Loan</td>
+                                <td><%= grand_tally.loan %></td>
+                            </tr>
+                            <tr>
+                                <td id="pool_type_td" >ReInvest</td>
+                                <td><%= grand_tally.reinvestment %></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="pure-u-1-2">
+                    <div id="pie_chart"></div>
+                </div>
+            </div>
+            <div class="portfolio_links">
+                <a href="#" onclick="viewHideClass('add_transaction')">Add Transaction</a>
+                <a href="#" onclick="viewHideClass('add_pool')">Add Pool</a>
+            </div>
+            <div class="add_stuff" id="add_transaction">
+                <form class="pure-form" action="/add_crypto_transaction" method="post" id="add_transaction">
+                    <fieldset>
+                        <div class="top_input">
+                            <input list="coin_symbols" name="coin" id="coin" placeholder="coin symbol" required class="pure-input-1-4">
+                            <datalist id="coin_symbols">
+                                <% for (const coin of coins) { %>
+                                    <option value="<%- coin %>">
+                                <% } %>
+                            </datalist>
+                                    
+                            <input type="text" name="exchange" id="exchange" placeholder="Exchange" required required class="pure-input-1-4"/>
+                            <input type="date" name="date" placeholder="Select Date of Purchase" class="pure-input-1-4" />
+                        </div>
+
+                        <div class="bot_input">
+                            <input type="number" name="size" step="0.00000001" placeholder="Amount" required required class="pure-input-1-4"/>
+                            <input type="number" name="price" step="0.0001" min=0 placeholder="Price" required required class="pure-input-1-4"/>
+                            <input type="number" name="fee"  step="0.0001" min=0 placeholder="Fee" required required class="pure-input-1-4"/>
+                            <br>
+                        </div>
+                        <input list="types" name="type" id="type" placeholder="Buy or Sell" required class="pure-input-1-4">
+                        <datalist id="types">
+                            <option value="buy">
+                            <option value="sell">
+                        </datalist>
+                        <input list="pools" name="pool" id="pool" placeholder="Pool" required class="pure-input-1-4">
+                        <datalist id="pools">
+                            <% for (const pool of pools) { %>
+                                <option value="<%- pool %>">
+                            <% } %>
+                        </datalist>
+                        <br>
+                        <button type="submit" value="add_transaction" class="pure-button" id="portfolio_button" required>
+                            Save Transaction
+                        </button>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="add_stuff" id="add_pool">
+                <form class="pure-form" action="/add_pool" method="post" id="add_pool">
+                    <fieldset>
+                        <div class="top_input">
+                            <input type="text" name="pool_name" id="pool_name" placeholder="Name" required required class="pure-input-1-4"/>
+                            <input type="text" name="pool_description" placeholder="Add A Description" class="pure-input-1-4" />
+                            <input list="pool_types" name="pool_type" id="pool_type" placeholder="Fiat" required class="pure-input-1-4">
+                            <datalist id="pool_types">
+                                <option value="fiat">
+                                <option value="loan">
+                                <option value="reinvestment">
+                            </datalist>
+                        </div>
+                        <br>
+                        <button type="submit" value="add_pool" class="pure-button" id="pool_button" required>
+                            Save Pool
+                        </button>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="portfolio">
+                <table class="pure-table" id="transactions_table">
+                    <thead>
+                        <tr>
+                            <th>Coin</th>
+                            <th>Price</th>
+                            <th>BE Price</th>
+                            <th>Number</th>
+                            <th>CV</th>
+                            <th>Invested</th>
+                            <th>% &#8710</th>
+                            <th>$ &#8710</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <% for (const t of transactions) {%>
+                        <tr>
+                            <td><a href="/crypto/coin/<%-t.summary.coin_id%>"><%= t.summary.symbol.toUpperCase() %></a></td>
+                            <td><%= t.summary.current_price %></td>
+                            <td><%= t.summary.avg_price %></td>
+                            <td><%= t.summary.own %></td>
+                            <td><%= t.summary.current_value %></td>
+                            <td><%= t.summary.cost %></td>
+                            <% if (Number(t.summary.price_diff.replace(',', '')) >= 0) { %>
+                                <td class="up"><%= t.summary.price_diff %></td>
+                                <% } else {%>
+                                <td class="down"><%= t.summary.price_diff %></td>
+                            <% } %>
+                            <% if (t.summary.cost_cv_diff.includes('-')) { %>
+                                <td class="down"><%= t.summary.cost_cv_diff %></td>
+                                <% } else {%>
+                                <td class="up"><%= t.summary.cost_cv_diff %></td>
+                            <% } %>
+                            <td>
+                                <a href="#"
+                                    onclick="showTransactions(
+                                        'transactions',
+                                        'close',
+                                        '<%= t.transactions %>',
+                                        '<%= t.summary.symbol %>',
+                                        '<%= t.summary.coin_id %>'
+                                    )"
+                                >view</a>
+                            </td>
+                        </tr>
+                    <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <div id="transactions" class="modal">
+                <div class="modal_content">
+                    <span class="close corner_x">&times;</span>
+                    <div id="table_title"></div>
+                    <div id="trans_table" class="trans_table"></div>
+                </div>
+            </div>
+            <%- include('../partials/footer'); %>
+        </div>
+        <script src="javascript/pop_out_window.js"></script>
+        <script src="javascript/toggle_class_display.js"></script>
+        <script src="/javascript/transactions_table.js"></script>
+        <script src="/javascript/pie_chart.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', makeChart(<%-JSON.stringify(transactions)%>));
+        </script>
+    </body>
+</html>

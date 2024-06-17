@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Varela" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/home.css"> 
+    <link rel="stylesheet" type="text/css" href="/css/rb.css">
+    <link rel="stylesheet" type="text/css" href="/css/data_table.css">
+    <link rel="stylesheet" type="text/css" href="/css/crypto.css">
+    <script type="text/javascript" charset="utf8" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Cactus Coin</title>
+</head>
+<body>
+    <div class="display_page_body">
+        <%- include('../pub_partials/nav_links') %>
+        <div class="crypto_market">
+            <table id="market_table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Coin</th>
+                        <th>Price</th>
+                        <th><a id="show_summary" href="#" onClick="showModal('cats', 'closeInfo')">Categories (View)</a></th>
+                        <th>% Change Last 24hr</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% data.forEach((i, n) => { %>
+                    <tr>
+                        <td><%- n + 1 %></td>
+                        <td><a href="/crypto/coin/<%-i.id%>"><%-i.symbol.toUpperCase() %></a></td>
+                        <td id="<%- i.symbol %>_price"><%-Number(i.price).toLocaleString('en-US', { style: 'currency', currency: 'USD'}) %></td>
+                        <td><% for (const cat of i.categories) { %>
+                            <a href="/crypto/cat/<%-cat%>"><%- cat %></a>
+                            <% } %>
+                        </td>
+                        <% if (i.change_per > 0) { %>
+                            <td class="up" id="<%-i.symbol%>_dper"><%-Number(i.change_per).toFixed(4) %></td>
+                        <% } else { %>
+                            <td class="down" id="<%-i.symbol%>_dper"><%-Number(i.change_per).toFixed(4) %></td>
+                        <% } %>
+                    </tr>
+                <% }); %>
+                </tbody>
+            </table>
+            <p id="cached_time"><%-cache_time.toISOString()%></p>
+        </div>
+        <div id="cats" class="modal">
+            <div class="modal-content">
+              <span class="closeInfo">&times;</span>
+              <table>
+                  <tr>
+                      <th>Code</th>
+                      <th>Category</th>
+                  </tr>
+                  <% for (const cat of cats) { %>
+                  <tr>
+                      <td><a href="/crypto/cat/<%-cat[0]%>"><%- cat[0] %></a></td>
+                      <td><%- cat[1].join(', ') %></td>
+                  </tr>
+                  <% } %>
+              </table>
+            </div>
+        </div>
+        <footer>
+            <div class="portalBottom">
+                <div class="short">
+                <img src="/imgs/short_landscape.png"/>
+                </div>
+                <div class="long">
+                <img src="/imgs/long_landscape.png"/>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/javascript/crypto_tables.js"></script>
+    <script src="/javascript/update_prices.js"></script>
+    <script src="/javascript/pop_out_window.js"></script>
+    <script>
+        $(document).ready(() => { eternalUpdate(); });
+    </script>
+</body>
+</html>

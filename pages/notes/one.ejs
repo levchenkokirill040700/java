@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../../partials/head'); -%>
+        <link rel="stylesheet" type="text/css" href="/css/notes.css">
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    </head>
+
+    <body>
+        <div class="pageBody">
+            <%- include('../../partials/nav_bar'); %>
+            <div class="view_note" id="view_note">
+                <p id="view_title"><%- note.title %><p>
+                <div class="content_wrapper">
+                    <div class="view_content" id="view_content"></div>
+                </div>
+                <div class="view_tags">
+                    <p>Tags:&nbsp;
+                        <% for (const tag of note.tags) {%>
+                            <a href="/notes/search/<%- tag %>"><%- tag %></a>
+                        <% } %>
+                    </p>
+                </div>
+                <div class="edit_note_button_class">
+                    <a href="#" id="edit_note_button" onclick="showHide('edit_note', 'view_note')">Edit</a>
+                </div>
+            </div>
+            <div class="edit_note" id="edit_note">
+                <form action="/note/<%= note._id %>/update" method="post" id="update_note">
+                    <label for="title">Title:</label>
+                    <input type="text" name="title" id="update_note_title" value="<%- note.title %>"/>
+                    <div class="content_wrapper">
+                        <div class="view_content">
+                            <textarea name="content" form="update_note" id="update_note_content" rows="20" cols="30"><%- note.content %></textarea>
+                        </div>
+                    </div>
+                    <br/>
+                    <label for="tags">Tags:</label>
+                    <input type="text" name="tags" placeholder="Tags" id="update_note_tags" value="<%- note.tags.join(' ') %>"/>
+                    <br/>
+                    <button type="submit" value="note" class="update_note">
+                        Save Changes
+                    </button>
+                </form> 
+                    <a href="#" id="return_to_note" onclick="showHide('view_note', 'edit_note')">Return To Note</a>
+            </div>
+            <footer>
+                <%- include('../../partials/footer'); %>
+            </footer>
+            <script src="/javascript/purify.min.js"></script>
+            <script src="/javascript/notes_one.js"></script>
+            <script>
+                window.addEventListener('DOMContentLoaded', (event) => {
+                    toMarkDown();
+                });
+
+                function toMarkDown(){
+                    document.getElementById('view_content').innerHTML = marked.parse(<%-JSON.stringify(note.content)%>);
+                }
+            </script>
+        </div>
+    </body>
+</html>

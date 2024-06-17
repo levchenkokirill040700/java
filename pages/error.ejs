@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head'); -%>
+    <link rel="stylesheet" type="text/css" href="css/error.css">
+</head>
+
+<body>
+    <div class="pageBody">
+        <div class="error">
+            <p>404 Error! Something is a miss!</p>
+            <% if (message) { %>
+            <p><%- message %></p>
+            <% } %>
+            <p>01100010 01111001 01100101 00100001 </p>
+        </div>
+
+        <%- include('../partials/footer'); -%>
+        <div class="error_img">
+            <a href="/">
+                <img src="imgs/cc_logo.png"/>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
